@@ -1,6 +1,6 @@
-# Assignment 6 - Group A-68
+# Introduction
 
-Streaming Wars Simulation developed in Java Spring Boot and React.js
+Streaming Wars is a streaming service simulation developed in Java Spring Boot and React.js
 
 ## Prerequisites
 
