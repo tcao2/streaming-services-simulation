@@ -1,0 +1,311 @@
+###
+POST http://localhost:8080/authenticate
+Content-Type: application/json
+
+{
+  "username" : "admin",
+  "password" : "password",
+  "role" : "admin"
+}x
+
+
+###
+POST http://localhost:8080/demographicGroup
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+{
+  "shortName" : "DemoGraphic1",
+  "longName" : "DemoGraphic1",
+  "initAccountSize" : 10
+}
+
+###
+POST http://localhost:8080/updatedemographicGroup
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "shortName" : "DemoGraphic1",
+  "longName" : "DemoGraphic1",
+  "initAccountSize" : 10
+}
+
+
+###
+POST http://localhost:8080/updatedemographicGroup
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+"shortName" : "DemoGraphic1",
+"longName" : "DemoGraphic1Updated",
+"initAccountSize" : 8
+}
+
+###
+
+POST http://localhost:8080/updatedemographicGroup
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "shortName" : "DemoGraphic1",
+  "longName" : "DemoGraphic1Updated",
+  "initAccountSize" : 15
+}
+
+###
+POST http://localhost:8080/demographicGroup
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "shortName" : "DemoGraphic2",
+  "longName" : "DemoGraphic2",
+  "initAccountSize" : 11
+}
+###
+GET http://localhost:8080/demographicGroup?name=DemoGraphic1
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+###
+
+GET http://localhost:8080/displayTime
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+###
+POST http://localhost:8080/studioService
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "shortName" : "Sony",
+  "longName" : "Sony Studios"
+}
+
+###
+GET http://localhost:8080/studioService?name=Sony
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+###
+
+POST http://localhost:8080/studio/event/movie
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "studioName" : "Sony",
+  "event" : {
+    "shortName" : "BloodSport",
+    "longName" : "BloodSport Van damme",
+    "duration" : 100,
+    "year" : "1999-01-01",
+    "licensePrice" : "90.0"
+  }
+}
+
+###
+GET http://localhost:8080/studioService?name=Sony
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+###
+POST http://localhost:8080/studio/event/movie/update
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+"studioName" : "Sony",
+"event" : {
+"shortName" : "BloodSport",
+"longName" : "BloodSport Van damme",
+"duration" : 100,
+"year" : "1999-01-01",
+"licensePrice" : "90.10"
+}
+}
+
+
+###
+POST http://localhost:8080/studio/event/ppv
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "studioName" : "Sony",
+  "event" : {
+    "shortName" : "Orannge",
+    "longName" : "Orannge",
+    "duration" : 100,
+    "year" : "1999-01-01",
+    "licensePrice" : "900.10"
+  }
+}
+
+###
+POST http://localhost:8080/studio/event/ppv/update
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "studioName" : "Sony",
+  "event" : {
+    "shortName" : "Orannge",
+    "longName" : "Orannge",
+    "duration" : 101,
+    "year" : "1999-01-01",
+    "licensePrice" : "900.1009"
+  }
+}
+
+###
+
+GET http://localhost:8080/studioService?name=Sony
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+###
+POST http://localhost:8080/streamingService
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "shortName" : "Netflix",
+  "longName" : "Netflix Streaming Service",
+  "monthlySubscriptionRate" : "15.5"
+}
+
+###
+
+POST http://localhost:8080/updateStreamingService
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "shortName" : "Netflix",
+  "longName" : "Netflix Streaming Service updated",
+  "monthlySubscriptionRate" : 150.01
+}
+###
+
+
+GET http://localhost:8080/streamingService?name=Netflix
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+###
+
+POST http://localhost:8080/offerMovie
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "streamingService" : "Netflix",
+  "studio" : "Sony",
+  "movie" : "BloodSport",
+  "year" : "1999-01-01"
+}
+
+###
+
+POST http://localhost:8080/offerPPV
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "streamingService" : "Netflix",
+  "studio" : "Sony",
+  "ppv" : "Orannge",
+  "year" : "1999-01-01",
+  "price": "12.50"
+}
+
+###
+
+POST http://localhost:8080/watchEvent
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "demographicGroup" : "DemoGraphic1",
+  "percentage" : 30,
+  "streamingService" : "Netflix",
+  "eventName" : "BloodSport",
+  "yearProduced" : "1999-01-01"
+}
+
+
+###
+
+GET http://localhost:8080/displayDemo?name=DemoGraphic1
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+###
+
+#GET http://localhost:8080/nextTime
+#Content-Type: application/json
+
+###
+
+GET http://localhost:8080/displayAllStudio
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+###
+
+GET http://localhost:8080/displayAllStreamingService
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+###
+
+GET http://localhost:8080/displayAllDemoGraphicGroup
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+###
+
+POST http://localhost:8080/retractMovie
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+{
+  "streamingService" : "Netflix",
+  "movie" : "BloodSport",
+  "year" : "1999-01-01"
+
+}
+
+###
+
+GET http://localhost:8080/streamingService?name=Netflix
+Content-Type: application/json
+Authorization: Bearer {{password}}
+
+
+###
